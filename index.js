@@ -50,29 +50,40 @@ const friends = [
 // Создаем фильтры парней и девушек
 const maleFilter = new lib.MaleFilter();
 const femaleFilter = new lib.FemaleFilter();
+console.log(femaleFilter);
 
 // Создаем итераторы
 const femaleIterator = new lib.Iterator(friends, femaleFilter);
+// for (const i of femaleIterator) {
+//     console.log(i);
+// }
+console.log(femaleIterator.next());
+console.log(femaleIterator.next());
+console.log(femaleIterator.next());
+console.log(femaleIterator.next());
+console.log(femaleIterator.done());
+console.log(femaleIterator.next());
+
 
 // Среди парней приглашаем только луших друзей и друзей лучших друзей
-const maleIterator = new lib.LimitedIterator(friends, maleFilter, 2);
+// const maleIterator = new lib.LimitedIterator(friends, maleFilter, 2);
 
-const invitedFriends = [];
+// const invitedFriends = [];
 
-// Собираем пары «парень + девушка»
-while (!maleIterator.done() && !femaleIterator.done()) {
-    invitedFriends.push([
-        maleIterator.next(),
-        femaleIterator.next()
-    ]);
-}
+// // Собираем пары «парень + девушка»
+// while (!maleIterator.done() && !femaleIterator.done()) {
+//     invitedFriends.push([
+//         maleIterator.next(),
+//         femaleIterator.next()
+//     ]);
+// }
 
-// Если остались девушки, то приглашаем остальных
-while (!femaleIterator.done()) {
-    invitedFriends.push(femaleIterator.next());
-}
+// // Если остались девушки, то приглашаем остальных
+// while (!femaleIterator.done()) {
+//     invitedFriends.push(femaleIterator.next());
+// }
 
-console.info(invitedFriends);
+// console.info(invitedFriends);
 // Sam, Sally
 // Brad, Emily
 // Mat, Sharon
